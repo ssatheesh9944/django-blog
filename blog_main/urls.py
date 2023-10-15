@@ -25,8 +25,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name='home'),
     path('category/',include('blog_app.urls')),
-    path('<slug:blog_slug>',blog_app_views.blogs,name="blog"),
+    path('blog/<slug:blog_slug>',blog_app_views.blogs,name="blog"),
     # search endpoint
-    path('blogs/search',blog_app_views.search,name="search")
+    path('blog/search',blog_app_views.search,name="search"),
+    path('register',views.register,name="register"),
+    path('login',views.login,name="login"),
+    path('logout',views.logout,name="logout")
     
 ] +static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)
